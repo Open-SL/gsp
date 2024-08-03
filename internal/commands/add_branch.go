@@ -12,7 +12,7 @@ func AddBranch(branchName string, stackName string, order int) error {
 	// Read existing JSON data
 	stacks, err := data.ReadJSON()
 	if err != nil {
-		fmt.Println("Error reading JSON data:", err)
+		fmt.Println("Error: reading JSON data", err)
 		return err
 	}
 

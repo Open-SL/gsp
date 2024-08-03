@@ -8,17 +8,17 @@ import (
 )
 
 var createStackCmd = &cobra.Command{
-	Use:   "cs [stack-name] [-d default-branch-name]",
+	Use:   "cs [stack-name] [-p primary-branch-name]",
 	Short: "Create a new stack",
 	Long: `Create a new stack. For example:
-	gsp cs my-stack -d default-branch-name`,
+	gsp cs my-stack -p primary-branch-name`,
 	Args: cobra.RangeArgs(1, 2),
 	Run:  createStack,
 }
 
 func init() {
 	rootCmd.AddCommand(createStackCmd)
-	createStackCmd.Flags().StringP("defaultBranch", "d", "master", "Default branch name")
+	createStackCmd.Flags().StringP("primaryBranch", "p", "master", "Primary branch name")
 }
 
 func createStack(cmd *cobra.Command, args []string) {
@@ -27,13 +27,15 @@ func createStack(cmd *cobra.Command, args []string) {
 		fmt.Println("Please provide a name for the stack")
 		return
 	}
-	defaultBranch, _ := cmd.Flags().GetString("defaultBranch")
+	primaryBranch, _ := cmd.Flags().GetString("primaryBranch")
 	stackName := args[0]
 	fmt.Println("Creating a new stack called", stackName)
 
-	err := commands.CreateStack(stackName, defaultBranch)
+	err := commands.CreateStack(stackName, primaryBranch)
 
 	if err != nil {
 		fmt.Println("Error writing JSON data:", err)
 	}
+
+	fmt.Println("Stack created successfully")
 }

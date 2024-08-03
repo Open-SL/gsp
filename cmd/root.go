@@ -9,16 +9,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// rootCmd represents the base command when called without any subcommands
+// rootCmd represents the base command when called without any subcommands.
 var rootCmd = &cobra.Command{
 	Use:   "gsp",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Short: "Git stacked pull requests",
+	Long: `This is a highly-opinionated CLI tool to sync git stacked branches/PRs to your remote repository.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	gsp is useful when you have multiple branches in a repository and you want to keep them in sync.
+	For example:
+	* Create a new stack
+	* Add a new branch to a stack
+	* List all stacks
+	* Delete a stack
+	* Sync a stack
+
+	gsp will make your life easier where you have to travel all the branches in a stack to keep them in sync.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },

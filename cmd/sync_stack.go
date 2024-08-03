@@ -44,7 +44,8 @@ func syncStack(cmd *cobra.Command, args []string) {
 
 	defaultBranch := stack.DefaultBranch
 
-	// default branch assigned as the default value
+	// default branch assigned as the branchNames default value.
+	// so that users can use `gsp ss my-stack` to sync all branches against the default branch.
 	branchName := defaultBranch
 
 	fmt.Println("Syncing stack", stackName, "against branch", branchName)
@@ -58,4 +59,6 @@ func syncStack(cmd *cobra.Command, args []string) {
 	if err != nil {
 		fmt.Println("Error syncing stack:", err)
 	}
+
+	fmt.Println("Stack synced successfully")
 }

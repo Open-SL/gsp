@@ -32,4 +32,6 @@ func addBranch(cmd *cobra.Command, args []string) {
 	if err != nil {
 		fmt.Println("Error writing JSON data:", err)
 	}
+
+	fmt.Println("Branch added successfully")
 }

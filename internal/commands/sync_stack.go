@@ -8,7 +8,9 @@ import (
 	"sort"
 )
 
-func SyncStack(stackName string, stack common.Stack, branchName string, defaultBranch string) error {
+// SyncStack synchronizes a stack against a specific branch.
+// The function returns an error if there are no branches to sync or if there is an error syncing a branch.
+func SyncStack(stackName string, stack common.Stack, branchName string, primaryBranch string) error {
 	sort.Sort(common.ByPriority(stack.Branches))
 
 	// Check if the branch exists
@@ -20,21 +22,20 @@ func SyncStack(stackName string, stack common.Stack, branchName string, defaultB
 		}
 	}
 
-	if !branchExists && branchName != defaultBranch {
+	if !branchExists && branchName != primaryBranch {
 		return fmt.Errorf("branch does not exist in the stack: %s", branchName)
 	}
 
 	// Remove all branches before the branch to sync
 	filteredBranches := removeElementsBeforeIndex(stack.Branches, branchIndex)
 
-	if branchName == "master" {
-
-		// append master branch to the filteredBranches
-		masterBranch := common.Branch{
-			BranchName: "master",
+	if branchName == primaryBranch {
+		// append defaultPrimary branch to the filteredBranches
+		defaultPrimary := common.Branch{
+			BranchName: primaryBranch,
 			Priority:   -999,
 		}
-		filteredBranches = append([]common.Branch{masterBranch}, filteredBranches...)
+		filteredBranches = append([]common.Branch{defaultPrimary}, filteredBranches...)
 	}
 
 	fmt.Println("Syncing branches:", filteredBranches)
