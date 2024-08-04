@@ -35,6 +35,7 @@ func createStack(cmd *cobra.Command, args []string) {
 
 	if err != nil {
 		fmt.Println("Error writing JSON data:", err)
+		return
 	}
 
 	fmt.Println("Stack created successfully")

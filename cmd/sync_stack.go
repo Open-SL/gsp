@@ -58,6 +58,7 @@ func syncStack(cmd *cobra.Command, args []string) {
 
 	if err != nil {
 		fmt.Println("Error syncing stack:", err)
+		return
 	}
 
 	fmt.Println("Stack synced successfully")

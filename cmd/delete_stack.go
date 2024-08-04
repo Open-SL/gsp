@@ -27,6 +27,7 @@ func deleteStack(cmd *cobra.Command, args []string) {
 	err := commands.DeleteStack(stackName)
 	if err != nil {
 		fmt.Println("Error deleting stack:", err)
+		return
 	}
 
 	fmt.Println("Stack deleted successfully")
