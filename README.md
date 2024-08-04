@@ -2,6 +2,15 @@
 
 This is a highly-opinionated CLI tool to sync git stacked branches/PRs to your remote repository.
 
+## Install
+
+### Using homebrew
+
+```
+brew tap Open-SL/tap
+brew install Open-SL/tap/gsp
+```
+
 ## Commands
 
 ### Create a stack
@@ -77,6 +86,8 @@ eg:
 ```
 gsp ds demo
 ```
+
+in addition to that, users can directly update/check the data store at `~/.gsp/data.json` at anytime.
 
 ### Development
 
