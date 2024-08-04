@@ -21,7 +21,7 @@ brews:
     homepage: https://github.com/Open-SL/gsp
     tap:
       owner: Open-SL
-      name: tap-opensl
+      name: homebrew-tap
     commit_author:
       name: nadunindunil
       email: nadun1indunil@gmail.com
