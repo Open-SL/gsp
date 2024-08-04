@@ -1,0 +1,32 @@
+builds:
+  - binary: gsp
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -mod=vendor
+
+release:
+  prerelease: auto
+
+universal_binaries:
+  - replace: true
+
+brews:
+  -
+    name: gsp
+    homepage: https://github.com/Open-SL/gsp
+    tap:
+      owner: Open-SL
+      name: tap-opensl
+    commit_author:
+      name: nadunindunil
+      email: nadun1indunil@gmail.com
+
+checksum:
+  name_template: 'checksums.txt'
