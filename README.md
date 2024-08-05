@@ -21,7 +21,7 @@ Use `-p` or `--primaryBranch` to mention the primary branch name of the reposito
 gsp cs [stack-name] [-p primary-branch-name]
 ```
 
-eg:
+example,
 ```
 gsp cs demo -d main
 ```
@@ -35,7 +35,7 @@ a branch with an order of n+1 is a chained branch to a branch with an order of n
 gsp ab [stack-name] [branch-name] [-o order-of-the-branch]
 ```
 
-eg:
+example,
 ```
 gsp ab demo feature/demo-branch-1
 gsp ab demo feature/demo-branch-2
@@ -48,7 +48,7 @@ Syncs branches with remote.
 gsp ss [stack-name] [optional-branch-name-to-initiate]
 ```
 
-eg:
+example,
 ```
 # Syncs branches starting from main. Note that optional branch name to initiate is not mentioned.
 # This will
@@ -82,7 +82,7 @@ gsp ls
 
 Deletes a named stack from the gsp stack list.
 
-eg:
+example,
 ```
 gsp ds demo
 ```
